@@ -8,7 +8,6 @@ const Wordbox = ({ word, onFinish, active }) => {
   const handleKeyUp = (e) => {
     if (e.key === lettersLeft[0]) {
       setMistake(false);
-      console.log('hura', e.key)
       setLettersLeft((prevValue) => prevValue.slice(1))
       if (lettersLeft.length === 1) {
         onFinish();
@@ -18,17 +17,20 @@ const Wordbox = ({ word, onFinish, active }) => {
     }
   }
 
-  console.log(mistake)
-
   useEffect(() => {
     if (active) {
       document.addEventListener('keyup', handleKeyUp);
       return () => document.removeEventListener('keyup', handleKeyUp);
     }
   },[lettersLeft, active]);
+
+  let classValue = "wordbox";
+  if (active) {
+    classValue = "wordbox wordbox--active"
+  }
   
   return (
-    <div className={mistake ? "wordbox wordbox--mistake" : "wordbox"}>{lettersLeft}</div>
+    <div className={mistake ? classValue + " wordbox--mistake" : classValue}>{lettersLeft}</div>
   );
 };
 

@@ -16,12 +16,11 @@ const generateWord = (size) => {
   const wordIndex = Math.floor(Math.random() * words.length);
   return words[wordIndex];
 };
-
+ 
 const Stage = () => {
   const [words, setWords] = useState([generateWord(6), generateWord(6), generateWord(6), generateWord(6)]);
 
   const handleFinish = () => {
-    console.log('finished!')
     setWords([]);
     setWords([...words.slice(1), generateWord(6)]);
   }
