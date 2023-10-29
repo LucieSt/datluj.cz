@@ -19,17 +19,25 @@ const generateWord = (size) => {
  
 const Stage = () => {
   const [words, setWords] = useState([generateWord(6), generateWord(6), generateWord(6), generateWord(6)]);
+  const [writing, setWriting] = useState('');
 
   const handleFinish = () => {
     setWords([]);
     setWords([...words.slice(1), generateWord(6)]);
   }
 
+  const handleWritingChange = (newText) => {
+    setWriting(newText)
+  };
+
   return (
     <div className="stage">
-      <div className="stage__mistakes">Chyb: 0</div>
+      {/* <div className="stage__mistakes">Chyb: 0</div> */}
       <div className="stage__words">
-        {words.map((word, index) => <Wordbox word={word} key={word} onFinish={handleFinish} active={index === 0} />)}
+        {words.map((word, index) => <Wordbox word={word} key={word} onFinish={handleFinish} active={index === 0} value={writing} onChange={handleWritingChange}/>)}
+      </div>
+      <div className='stage__paper'>
+        <p>{writing}</p>
       </div>
     </div>
   );

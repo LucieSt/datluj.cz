@@ -19,3 +19,10 @@
   flex-direction: column-reverse;
   margin-bottom: 30px;
 }
+
+.stage__paper {
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  padding: 10px;
+}

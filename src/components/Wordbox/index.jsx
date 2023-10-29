@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { playSound } from '../../sound-effect';
 import './style.css';
 
-const Wordbox = ({ word, onFinish, active }) => {
+const Wordbox = ({ word, onFinish, active, value, onChange }) => {
   const [lettersLeft, setLettersLeft] = useState(word);
   const [mistake, setMistake] = useState(false);
   
   const handleKeyUp = (e) => {
+    console.log(value, e.key);
+    onChange(value + e.key);
     if (e.key === lettersLeft[0]) {
+      playSound('typeSound');
       setMistake(false);
       setLettersLeft((prevValue) => prevValue.slice(1))
       if (lettersLeft.length === 1) {
+        playSound('doneSound');
+        onChange(value + e.key + ' ')
         onFinish();
       };
     } else {
+      playSound('wrongTypeSound');
       setMistake(true);
     }
   }
