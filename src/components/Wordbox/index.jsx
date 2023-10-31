@@ -7,7 +7,6 @@ const Wordbox = ({ word, onFinish, active, value, onChange }) => {
   const [mistake, setMistake] = useState(false);
   
   const handleKeyUp = (e) => {
-    console.log(value, e.key);
     onChange(value + e.key);
     if (e.key === lettersLeft[0]) {
       playSound('typeSound');

@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'bohemian-typewriter';
+  src: url('fonts/bohemian-typewriter.ttf') format('truetype'),
+}
+
 html {
   font-family: 'Open Sans', sans-serif;
 }
