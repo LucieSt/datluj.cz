@@ -10,11 +10,16 @@
 }
 
 html {
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'bohemian-typewriter', sans-serif;
+}
+
+button {
+  font-family: 'bohemian-typewriter', sans-serif;
 }
 
 .container {
-  width: 720px;
+  width: 900px;
   margin-right: auto;
   margin-left: auto;
 }
